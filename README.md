@@ -1,4 +1,4 @@
-![Logo fyrir veiðibann](./extension/icon238.png)
+![Logo fyrir veiðibann](./extension/icon128.png)
 
 # Veiðibann
 
