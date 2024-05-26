@@ -13,6 +13,8 @@ At the moment this is only set up for mbl.is and Chrome, but it should be easy t
 
 ## How do I set this up?
 
+The extension is currently in review by Google, but you can still load it manually.
+
 After cloning the repository, you can [go to Chrome's extension settings](chrome://extensions/), click "Load unpacked" and select the "extension" folder within the repository. After that, you have to reload Chrome.
 
 ## How does this work?
