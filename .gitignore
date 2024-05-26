@@ -1,0 +1,7 @@
+.wrangler
+node_modules
+.dev.vars
+extension.crx
+extension.pem
+extebnsion.zip
+*.psd
