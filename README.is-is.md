@@ -1,6 +1,7 @@
 ![Logo fyrir veiðibann](./extension/icon128.png)
 
 # Veiðibann
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/sverrirarnors/veidibann/blob/main/README.md)
 
 Finnst þér fyrirsagnirnar á mbl.is óskýrar og bara til þess gerðar að fá þig til að smella á þær? Veiðibann skiptir óskýrum fyrirsögnum út á forsíðunni og gerir þér kleyft að taka upplýsta ákvörðun áður en þú smellir á fréttina.
 
