@@ -2,6 +2,9 @@
 
 # Veiðibann
 
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/sverrirarnors/veidibann/blob/main/README.md)
+[![is](https://img.shields.io/badge/lang-is-blue.svg)](https://github.com/sverrirarnors/veidibann/blob/main/README.is.md)
+
 Tired of clickbait headlines on mbl.is? Veiðibann uses GPT-4o to rewrite headlines on mbl.is to make them more descriptive and clear.
 
 ## Where does this work?
