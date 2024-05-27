@@ -22,47 +22,26 @@ export async function getHeadline(mblUrl: string, env: any): Promise<string> {
 
     const chatCompletion = await openai.chat.completions.create({
         model: "gpt-4o",
-        response_format: { type: "json_object" },
-        n: 3,
         messages: [
             {
                 role: "system",
                 content: `
-You are a journalist writing a news article. The headline below is clickbait and you need to rewrite it to be more informative.
-You will receive a headline and the article. Your goal is to rewrite the headline to be more informative and less sensational.
-Respect Icelandic grammar, spelling, and capitalization rules.
-If the article is not clickbait and represents the article well, you should return the original headline.
-Please return a single headline in Icelandic formatted as the value of a json object with the key being \`headline\`.
-                `,
+Þú ert blaðamaður hjá virtu íslensku tímariti. Fyrir neðan er grein. Upprunalega fyrirsögnin var óljós, ekki lýsandi fyrir greinina, og gerð til þess að fólk smelli á hana til að komast að því um hvað hún er.
+Þú átt að búa til nýja fyrirsögn sem er skýrari og gefur betri upplýsingar um greinina, án þess að fyrirsögnin sé of löng.
+Vinsamlegast skrifaðu fyrirsögnina á góðri íslensku með réttri stafsetningu og málfræði.
+Þú átt að skila einni fyrirsögn, og engu öðru; engum gæsalöppum utan um fyrirsögnina eða neitt.`,
             },
-            { role: "user", content: `Headline: ${headline}\nArticle: ${mainContent}` },
+            { role: "user", content: `Fyrirsögn: ${headline}\nGrein: ${mainContent}` },
         ],
     });
 
-    const chatCompletionData = await chatCompletion.choices;
+    const chatCompletionData = chatCompletion.choices;
 
-    const choiceCompletion = await openai.chat.completions.create({
-        model: "gpt-4o",
-        response_format: { type: "json_object" },
-        n: 3,
-        messages: [
-            {
-                role: "system",
-                content: `
-I will give you three headlines in Icelandic, and the article that corresponds to them. Please choose the headline that best represents the article.
-Return as json with a single key (headline) with the value being the chosen headline.
-                `,
-            },
-            {
-                role: "user",
-                content: `Headlines: ${chatCompletionData.map((choice: any) => choice.message.content).join("\n")}\nArticle: ${mainContent}`,
-            },
-        ],
-    });
+    const chosenHeadline = chatCompletionData[0].message.content;
 
-    const choiceCompletionData = await choiceCompletion.choices;
-
-    const chosenHeadline = JSON.parse(choiceCompletionData[0].message.content).headline;
+    if (!chosenHeadline) {
+        throw new Error("No headline found");
+    }
 
     return chosenHeadline;
 }
