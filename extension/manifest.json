@@ -3,7 +3,6 @@
     "name": "Veiðibann",
     "version": "0.0.0.1",
     "description": "Betri fyrirsagnir fyrir mbl.is.",
-    "permissions": ["activeTab", "storage"],
     "icons": {
         "48": "icon48.png",
         "96": "icon96.png",
